@@ -288,3 +288,156 @@ footer p {
         padding: 18px;
     }
 }
+
+/* =========================
+   10. 当前导航高亮
+   ========================= */
+
+/*
+   nav a.active 表示当前页面对应的导航链接
+   例如在 notes.html 页面，“学习笔记”会高亮
+*/
+nav a.active {
+    background: #2563eb;
+    color: white;
+}
+
+
+/* =========================
+   11. 返回顶部按钮
+   ========================= */
+
+/*
+   返回顶部按钮默认隐藏
+*/
+.back-to-top {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    width: 46px;
+    height: 46px;
+    border: none;
+    border-radius: 50%;
+    background: #2563eb;
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 8px 22px rgba(37, 99, 235, 0.35);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.25s ease;
+}
+
+/*
+   当 JavaScript 给按钮加 show 类时，按钮显示出来
+*/
+.back-to-top.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/*
+   鼠标放上去时，按钮轻微上浮
+*/
+.back-to-top:hover {
+    transform: translateY(-3px);
+}
+
+
+/* =========================
+   12. 暗色模式按钮
+   ========================= */
+
+/*
+   暗色模式切换按钮
+*/
+.theme-toggle {
+    position: fixed;
+    right: 24px;
+    bottom: 82px;
+    border: none;
+    border-radius: 999px;
+    background: #111827;
+    color: white;
+    padding: 10px 16px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 8px 22px rgba(17, 24, 39, 0.25);
+    transition: all 0.25s ease;
+}
+
+.theme-toggle:hover {
+    transform: translateY(-2px);
+}
+
+
+/* =========================
+   13. 暗色模式整体样式
+   ========================= */
+
+/*
+   当 body 有 dark-mode 类时，整个网站切换为暗色风格
+*/
+body.dark-mode {
+    background: #0f172a;
+    color: #e5e7eb;
+}
+
+body.dark-mode nav {
+    background: #111827;
+}
+
+body.dark-mode nav a {
+    color: #d1d5db;
+}
+
+body.dark-mode nav a:hover,
+body.dark-mode nav a.active {
+    background: #2563eb;
+    color: white;
+}
+
+body.dark-mode section {
+    background: #1e293b;
+    border-color: #334155;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+}
+
+body.dark-mode section h2 {
+    color: #f9fafb;
+}
+
+body.dark-mode section p {
+    color: #cbd5e1;
+}
+
+body.dark-mode footer {
+    background: #020617;
+}
+
+body.dark-mode .theme-toggle {
+    background: white;
+    color: #111827;
+}
+
+
+/* =========================
+   14. 手机端按钮适配
+   ========================= */
+
+@media (max-width: 480px) {
+    .back-to-top {
+        right: 16px;
+        bottom: 18px;
+        width: 42px;
+        height: 42px;
+    }
+
+    .theme-toggle {
+        right: 16px;
+        bottom: 70px;
+        padding: 8px 12px;
+        font-size: 13px;
+    }
+}
