@@ -1,44 +1,290 @@
+/* 
+    style.css
+    作用：控制整个门户网站的视觉效果
+    你可以把 CSS 理解成：网页的装修、排版、颜色和布局系统
+*/
+
+
+/* =========================
+   1. 全局基础设置
+   ========================= */
+
+/* 
+   * 代表所有元素
+   box-sizing: border-box 的作用：
+   让 width 计算时包含 padding 和 border，布局更稳定
+*/
+* {
+    box-sizing: border-box;
+}
+
+/* 
+   body 是整个网页的主体
+   所有页面的默认字体、背景色、文字颜色都从这里开始
+*/
 body {
     margin: 0;
-    font-family: Arial, "Microsoft YaHei", sans-serif;
-    background-color: #f5f5f5;
-    color: #333;
+    font-family: Arial, "Microsoft YaHei", "微软雅黑", sans-serif;
+    background: #f4f6f8;
+    color: #1f2937;
+    line-height: 1.7;
 }
 
+
+/* =========================
+   2. 顶部大标题区域 header
+   ========================= */
+
+/* 
+   header 是页面顶部区域
+   这里用了渐变背景，让页面看起来更像正式网站
+*/
 header {
-    background-color: #222;
+    background: linear-gradient(135deg, #111827, #1f2937, #334155);
     color: white;
     text-align: center;
-    padding: 40px 20px;
+    padding: 70px 20px 60px;
 }
 
+/* 
+   header h1 控制顶部最大的标题
+*/
+header h1 {
+    margin: 0 0 15px;
+    font-size: 42px;
+    letter-spacing: 2px;
+}
+
+/* 
+   header p 控制顶部副标题
+   opacity 是透明度，0.9 表示稍微淡一点
+*/
+header p {
+    margin: 0;
+    font-size: 18px;
+    opacity: 0.9;
+}
+
+
+/* =========================
+   3. 导航栏 nav
+   ========================= */
+
+/* 
+   nav 是导航栏
+   position: sticky 可以让导航栏在滚动时吸附在顶部
+*/
 nav {
-    background-color: #333;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: white;
     text-align: center;
-    padding: 12px;
+    padding: 14px 10px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
 }
 
+/* 
+   nav a 控制导航栏里的链接
+   例如：首页、项目展示、学习笔记、关于我
+*/
 nav a {
-    color: white;
+    display: inline-block;
+    color: #374151;
     text-decoration: none;
-    margin: 0 15px;
+    margin: 0 8px;
+    padding: 8px 14px;
+    border-radius: 999px;
+    font-weight: 600;
+    transition: all 0.2s ease;
 }
 
+/* 
+   :hover 表示鼠标放上去时的效果
+*/
+nav a:hover {
+    background: #111827;
+    color: white;
+    transform: translateY(-1px);
+}
+
+
+/* =========================
+   4. 主体内容 main
+   ========================= */
+
+/* 
+   main 是每个页面的主体区域
+   max-width 限制最大宽度，让页面不要太宽
+*/
 main {
-    width: 80%;
-    margin: 30px auto;
+    width: 90%;
+    max-width: 1100px;
+    margin: 40px auto;
 }
 
+
+/* =========================
+   5. 内容卡片 section
+   ========================= */
+
+/* 
+   section 是你页面里一块一块的内容
+   这里把每个 section 做成卡片效果
+*/
 section {
-    background-color: white;
-    padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 10px;
+    background: white;
+    padding: 28px;
+    margin-bottom: 24px;
+    border-radius: 18px;
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+    border: 1px solid #e5e7eb;
+    transition: all 0.2s ease;
 }
 
+/* 
+   section:hover 表示鼠标放到卡片上时的效果
+   轻微上浮，让页面更有质感
+*/
+section:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 34px rgba(15, 23, 42, 0.12);
+}
+
+/* 
+   section h2 控制每个卡片的小标题
+*/
+section h2 {
+    margin-top: 0;
+    margin-bottom: 12px;
+    color: #111827;
+    font-size: 24px;
+    border-left: 5px solid #2563eb;
+    padding-left: 12px;
+}
+
+/* 
+   section p 控制卡片里的正文段落
+*/
+section p {
+    margin: 10px 0;
+    color: #4b5563;
+    font-size: 16px;
+}
+
+
+/* =========================
+   6. 普通链接样式
+   ========================= */
+
+/* 
+   这里控制正文里面的链接
+   不影响导航栏，因为导航栏有 nav a 单独控制
+*/
+main a {
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+main a:hover {
+    text-decoration: underline;
+}
+
+
+/* =========================
+   7. 底部 footer
+   ========================= */
+
+/* 
+   footer 是网站底部
+*/
 footer {
     text-align: center;
-    padding: 20px;
-    background-color: #222;
-    color: white;
+    padding: 28px 20px;
+    background: #111827;
+    color: #d1d5db;
+    margin-top: 50px;
+}
+
+footer p {
+    margin: 0;
+    font-size: 14px;
+}
+
+
+/* =========================
+   8. 响应式布局：适配手机
+   ========================= */
+
+/* 
+   @media 表示当屏幕宽度小于 768px 时，执行里面的样式
+   这就是手机适配
+*/
+@media (max-width: 768px) {
+
+    header {
+        padding: 50px 16px 45px;
+    }
+
+    header h1 {
+        font-size: 30px;
+    }
+
+    header p {
+        font-size: 15px;
+    }
+
+    nav {
+        padding: 10px 6px;
+    }
+
+    nav a {
+        margin: 4px;
+        padding: 7px 10px;
+        font-size: 14px;
+    }
+
+    main {
+        width: 92%;
+        margin: 25px auto;
+    }
+
+    section {
+        padding: 20px;
+        border-radius: 14px;
+    }
+
+    section h2 {
+        font-size: 20px;
+    }
+
+    section p {
+        font-size: 15px;
+    }
+}
+
+
+/* =========================
+   9. 更小屏幕适配
+   ========================= */
+
+/* 
+   当屏幕小于 480px 时，进一步优化
+*/
+@media (max-width: 480px) {
+
+    header h1 {
+        font-size: 26px;
+    }
+
+    nav a {
+        display: block;
+        margin: 6px auto;
+        width: 85%;
+    }
+
+    section {
+        padding: 18px;
+    }
 }
